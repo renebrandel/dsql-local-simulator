@@ -52,24 +52,24 @@ CREATE TRIGGER before_insert_employees
 Everything marked as check [x] is explicitly prohibited by the simulator.
 
 - [x] CREATE VIEW
-- [ ] CREATE INDEX [ASYNC]
-  - [ ] ASC
-  - [ ] DESC
-  - [ ] if table has data
+- [X] CREATE INDEX [ASYNC]
+  - [X] ASC
+  - [X] DESC
+  - [X] if table has data
 - [x] TRUNCATE
 - [x] ALTER SYSTEM
-- [ ] CREATE TABLE
-  - [ ] COLLATE
-  - [ ] AS SELECT
-  - [ ] INHERIT
-  - [ ] PARTITION
-- [ ] CREATE FUNCTION
-  - [ ] LANGUAGE plpgsql (any language besides sql)
-- [x] CREATE TEMPORARY TABLE
+- [x] CREATE TABLE
+  - [X] COLLATE
+  - [x] AS SELECT
+  - [x] INHERIT
+  - [X] PARTITION
+- [x] CREATE FUNCTION
+  - [x] LANGUAGE plpgsql (any language besides sql)
+- [X] CREATE TEMPORARY TABLE
 - [x] CREATE EXTENSION
 - [x] CREATE SEQUENCE
 - [x] CREATE MATERIALIZED VIEW
 - [x] CREATE TRIGGER
 - [x] CREATE TABLESPACE
 - [x] CREATE TYPE
-- [x] CREATE DATABASE# dsql-local-simulator
+- [x] CREATE DATABASE
