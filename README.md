@@ -45,7 +45,7 @@ CREATE TRIGGER before_insert_employees
 
 ## Demo
 
-![Demo video](./assets/demo.mp4)
+![Demo video](./assets/demo.gif)
 
 ## Simulation parity: Unsupported SQL expressions
 
