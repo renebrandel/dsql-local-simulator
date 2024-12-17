@@ -1,0 +1,4 @@
+# block_unsupported.control
+comment = 'Blocks unsupported SQL statements'
+default_version = '1.0'
+relocatable = false
