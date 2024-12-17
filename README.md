@@ -19,6 +19,10 @@ CREATE EXTENSION block_unsupported;
 ```
 3. Try an unsupported statement and see it fail!
 
+## Demo
+
+![Demo video](https://github.com/user-attachments/assets/848751ca-4a99-43da-b814-030fee5dcc2d)
+
 ## Simulation parity: Unsupported SQL expressions
 
 Everything marked as check [x] is explicitly prohibited by the simulator.
