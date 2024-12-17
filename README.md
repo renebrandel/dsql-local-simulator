@@ -1,6 +1,6 @@
 # DSQL Local Simulator (**un**official)
 
-A PostgreSQL Docker container hosted on port 5432 with an extension to block unsupported SQL statements in Amazon Aurora DSQL.
+This is a **PROTOTYPE** PostgreSQL Docker container hosted on port 5432 that simulates the SQL expression support matrix found in [Amazon Aurora DSQL](https://aws.amazon.com/rds/aurora/dsql/).
 
 This is an unofficial simulator and IS NOT 100% equivalent to the actual live Amazon Aurora DSQL service. The list of unsupported features are based on the following [official documentation](https://docs.aws.amazon.com/aurora-dsql/latest/userguide/working-with-postgresql-compatibility-unsupported-features.html).
 
@@ -17,11 +17,35 @@ Instructions:
 DROP EXTENSION IF EXISTS block_unsupported;
 CREATE EXTENSION block_unsupported;
 ```
-3. Try an unsupported statement and see it fail!
+3. Try an unsupported statement and see it fail.
+
+Example failing statements:
+ALTER SYSTEM
+```sql
+ALTER SYSTEM SET random_page_cost = '1.1';
+```
+
+CREATE TYPE
+```sql
+CREATE TYPE address AS (
+    street VARCHAR(100),
+    city VARCHAR(50),
+    state CHAR(2),
+    zip VARCHAR(10)
+);
+```
+
+CREATE TRIGGER
+```sql
+CREATE TRIGGER before_insert_employees
+    BEFORE INSERT ON employees
+    FOR EACH ROW
+    EXECUTE FUNCTION validate_employee();
+```
 
 ## Demo
 
-![Demo video](./assets/demo.mov)
+![Demo video](./assets/demo.mp4)
 
 ## Simulation parity: Unsupported SQL expressions
 
@@ -34,7 +58,6 @@ Everything marked as check [x] is explicitly prohibited by the simulator.
   - [ ] if table has data
 - [x] TRUNCATE
 - [x] ALTER SYSTEM
-  - [ ] All alter system is blocked
 - [ ] CREATE TABLE
   - [ ] COLLATE
   - [ ] AS SELECT
