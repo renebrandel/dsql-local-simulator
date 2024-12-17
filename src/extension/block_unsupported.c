@@ -41,6 +41,7 @@ static const struct
     {T_CreateEnumStmt, "CREATE TYPE (enum types)"},
     // <end> CREATE TYPE, CREATE DOMAIN
     {T_CreatedbStmt, "CREATE DATABASE"},
+    {T_VacuumStmt, "VACUUM"},
 };
 
 /* Hook function implementation */
@@ -61,8 +62,6 @@ static void block_unsupported_statements_hook(PlannedStmt *pstmt, const char *qu
     if (IsA(parsetree, CreateStmt))
     {
         CreateStmt *stmt = (CreateStmt *)parsetree;
-        ereport(NOTICE,
-                (errmsg("Node type: %s", nodeToString(stmt))));
         if (stmt->relation->relpersistence == 't')
         {
             ereport(ERROR,
