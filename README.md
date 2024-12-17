@@ -47,7 +47,9 @@ CREATE TRIGGER before_insert_employees
 
 ![Demo video](./assets/demo.gif)
 
-## Simulation parity: Unsupported SQL expressions
+## Simulation parity
+
+### Unsupported SQL expressions
 
 Everything marked as check [x] is explicitly prohibited by the simulator.
 
@@ -73,3 +75,29 @@ Everything marked as check [x] is explicitly prohibited by the simulator.
 - [x] CREATE TABLESPACE
 - [x] CREATE TYPE
 - [x] CREATE DATABASE
+
+### Unsupported constraints
+- [ ] Foreign keys
+- [ ] Exclusion constraints
+
+### Unsupported operations
+- [ ] VACUUM
+- [ ] SAVEPOINT
+
+### Unsupported extensions
+- [ ] PL/pgsql
+- [ ] PostGIS
+- [ ] PGVector
+- [ ] PGAudit
+- [ ] Postgres_FDW
+- [ ] PGCron
+- [ ] pg_stat_statements
+
+### Limitations
+- [X] CREATE DATABASE: Aurora DSQL supports a single database postgres which is UTF-8 and collation = C only. You can't modify the system timezone and it's set to UTC
+- [ ] SET TRANSACTION [ISOLATION LEVEL]: Aurora DSQL isolation level is equivalent to PostgreSQL Repeatable Read. You can't change this isolation level.
+- [ ] A transaction can't contain mixed DDL and DML operations
+- [ ] A transaction can contain at most 1 DDL statement
+- [ ] A transaction cannot modify more than 10,000 rows, and this limit is modified by secondary index entries. For example, consider a table with five columns, where the primary key is the first column, and the fifth column has a secondary index. Given an UPDATE that will change a single row targeting all five columns, the number of rows modified would be two. One for the Primary Key and one for the row in secondary index object. If this same UPDATE affected only the columns without a secondary index, the number of rows modified would be one. This limit applies to all DML statements (INSERT, UPDATE, DELETE).
+- [ ] A connection cannot exceed 1 hour.
+- [ ] AutoVacuuming to keep statistics up to date. Vacuum is not required in Aurora DSQL.
