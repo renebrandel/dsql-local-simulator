@@ -21,7 +21,7 @@ CREATE EXTENSION block_unsupported;
 
 ## Demo
 
-![Demo video](https://github.com/user-attachments/assets/848751ca-4a99-43da-b814-030fee5dcc2d)
+![Demo video](./assets/demo.mov)
 
 ## Simulation parity: Unsupported SQL expressions
 
