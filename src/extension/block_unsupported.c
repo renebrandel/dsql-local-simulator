@@ -34,12 +34,11 @@ static const struct
     {T_CreateTableAsStmt, "CREATE MATERIALIZED VIEW or CREATE TABLE AS"},
     {T_CreateTrigStmt, "CREATE TRIGGER"},
     {T_CreateTableSpaceStmt, "CREATE TABLESPACE"},
-    // <begin> CREATE TYPE, CREATE DOMAIN
-    {T_CreateDomainStmt, "CREATE DOMAIN"},
+    // <begin> CREATE TYPE
     {T_CompositeTypeStmt, "CREATE TYPE (composite types)"},
     {T_CreateRangeStmt, "CREATE TYPE (range types)"},
     {T_CreateEnumStmt, "CREATE TYPE (enum types)"},
-    // <end> CREATE TYPE, CREATE DOMAIN
+    // <end> CREATE TYPE
     {T_CreatedbStmt, "CREATE DATABASE"},
     {T_VacuumStmt, "VACUUM"},
 };
